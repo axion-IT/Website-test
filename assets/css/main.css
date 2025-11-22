@@ -1,0 +1,1687 @@
+/* VerSprite Website - Cloned from Cyberpunk 2077 */
+/* Colors: Replace #fcee0a (yellow) with #54C5ED (VerSprite blue) */
+/* Replace #00f0ff (cyan) with #00d0e8 (secondary VerSprite) */
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/* Fonts are loaded in fonts.css via HTML link tag */
+
+body {
+  background-color: #000;
+  font-family: BlenderProBook, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+.body, .l-newsletter__text {
+  font-family: BlenderProBook, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.h2 {
+  font-family: BlenderProBold, sans-serif;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+@media (max-width: 767.9px) {
+  .h2 {
+    font-size: 44px;
+  }
+}
+
+.h3 {
+  color: #000;
+  font-family: BlenderProBold, sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.h3.yellow {
+  color: #54C5ED;
+}
+
+@media (max-width: 767.9px) {
+  .h3 {
+    font-size: 32px;
+  }
+}
+
+.h6, .news__title {
+  font-family: BlenderProBold, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.separator {
+  background: #54C5ED;
+  padding: 26px 40px 23px;
+  margin-bottom: 48px;
+}
+
+.separator:after {
+  background: rgba(0,0,0,0.1);
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+}
+
+@media (max-width: 767.9px) {
+  .separator {
+    padding: 0 24px;
+    margin-bottom: 32px;
+  }
+}
+
+.white {
+  color: #fff !important;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.refinery25 {
+  font-family: Refinery-25, sans-serif;
+}
+
+/* Buttons - Using border-image like Cyberpunk */
+.cp-btn {
+  align-items: center;
+  border-style: solid;
+  border-width: 0 20px;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  min-width: 232px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  background: transparent;
+  font-weight: 700;
+}
+
+.cp-btn--cyan {
+  border-image: url(../images/cp-btn-cyan.svg) 0 20 fill;
+  color: #000;
+}
+
+.cp-btn--cyan:hover {
+  border-image: url(../images/cp-btn-black.svg) 0 20 fill;
+  color: #fff;
+}
+
+.cp-btn--black {
+  border-image: url(../images/cp-btn-black.svg) 0 20 fill;
+  color: #fff;
+}
+
+.cp-btn--black:hover {
+  border-image: url(../images/cp-btn-cyan.svg) 0 20 fill;
+  color: #000;
+}
+
+button.cp-btn {
+  background-color: inherit;
+  border-color: inherit;
+  padding: inherit;
+}
+
+button.cp-btn:disabled {
+  opacity: 0.25;
+  color: #575757;
+  cursor: default;
+}
+
+/* Header */
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 660px;
+}
+
+@media (max-width: 767.9px) {
+  .p-service .header {
+    height: auto;
+    min-height: 0;
+  }
+}
+
+.header:after {
+  content: "";
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(180deg, transparent, #000);
+  bottom: 0;
+  height: 302px;
+  z-index: 1;
+}
+
+@media (max-width: 767.9px) {
+  .header:after {
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88) 70.83%, #000);
+  }
+  
+  .p-service .header:after {
+    height: 30vh;
+  }
+}
+
+.header__bg {
+  background: #000;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+@media (max-width: 767.9px) {
+  .p-service .header__bg {
+    height: 50vh;
+  }
+}
+
+.header__bg video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.header__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 767.9px) {
+  .header__bg img {
+    object-position: center center;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .header__bg video {
+    aspect-ratio: 16/9;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+.header__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  height: 100%;
+  justify-content: center;
+  margin-left: 8.0729166667vw;
+  position: relative;
+  width: fit-content;
+  padding-bottom: 112px;
+  z-index: 2;
+}
+
+@media (max-width: 767.9px) {
+  .header__content {
+    gap: 20px;
+    justify-content: flex-start;
+    margin-left: 0;
+    padding: 87vw 40px 40px;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  .p-service .header__content {
+    justify-content: flex-end;
+    padding: 0 40px 32px;
+    min-height: 50vh;
+  }
+}
+
+.header__quotes {
+  align-items: center;
+  display: inline-flex;
+  gap: 28px;
+  justify-content: center;
+}
+
+@media (max-width: 767.9px) {
+  .header__quotes {
+    display: none;
+  }
+}
+
+.header__quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 64px;
+  justify-content: center;
+  padding: 0 31px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.header__quote .h6,
+.header__quote .body {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header__title {
+  font-family: Refinery-25, sans-serif;
+  font-size: 88px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 90%;
+  max-width: 587px;
+  text-align: left;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.35);
+}
+
+@media (max-width: 767.9px) {
+  .header__title {
+    color: #fff;
+    font-size: 32px;
+    line-height: 100%;
+    max-width: none;
+    text-align: center;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+  }
+}
+
+.header__bottom {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 767.9px) {
+  .header__bottom {
+    display: none;
+  }
+}
+
+.header__buttons {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 767.9px) {
+  .header__buttons {
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Header Top / Navigation */
+.header-top {
+  align-items: self-start;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 40px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.header-top > * {
+  pointer-events: auto;
+}
+
+.header-top__logo {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.header-top__logo img {
+  height: auto;
+  max-height: 60px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 7px rgba(0,0,0,0.38)) drop-shadow(0 4px 16px rgba(0,0,0,0.25));
+  animation: logo-shine 4s ease-in-out infinite;
+}
+
+@keyframes logo-shine {
+  0%, 100% {
+    filter: drop-shadow(0 2px 7px rgba(0,0,0,0.38)) drop-shadow(0 4px 16px rgba(0,0,0,0.25));
+  }
+  50% {
+    filter: drop-shadow(0 2px 7px rgba(84,197,237,0.6)) drop-shadow(0 4px 16px rgba(84,197,237,0.8)) drop-shadow(0 0 20px rgba(84,197,237,0.5));
+  }
+}
+
+/* Menu - EXACT Cyberpunk Clone */
+.menu {
+  clip-path: polygon(16px 0, 100% 0, 100% 30px, calc(100% - 18px) 48px, calc(100% - 18px) 2000%, 0 2000%, 0 16px);
+  margin-top: 36px;
+  position: relative;
+  user-select: none;
+}
+
+.menu::before {
+  backdrop-filter: blur(8px);
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.menu-list {
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #54C5ED;
+  display: flex;
+  height: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 24px;
+}
+
+.menu-list::before {
+  border-right: 18px solid transparent;
+  border-top: 18px solid #54C5ED;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.menu-item {
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: BlenderProBook, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  height: 100%;
+  line-height: 110%;
+  padding: 0 25px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.menu-item a {
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu-item.menu-item-buy {
+  background: #54C5ED;
+  color: #000;
+  font-family: BlenderProBold, sans-serif;
+  font-weight: 700;
+  min-width: 168px;
+  text-align: center;
+}
+
+.menu-item.menu-item-buy a {
+  width: 100%;
+}
+
+.menu-item:hover {
+  background: #54C5ED;
+  color: #000;
+}
+
+.menu-item:hover .menu-sub:after {
+  border-top: 6px solid #000;
+}
+
+.menu-sub {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.menu-sub:after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #fff;
+  content: "";
+  display: block;
+  height: 6px;
+  margin-left: 4px;
+  position: relative;
+  width: 8px;
+}
+
+.menu-sub-list {
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #54C5ED;
+  border-top: 8px solid #54C5ED;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 2px 16px rgba(0,0,0,0.25);
+  clip-path: inset(0 -16px -16px -16px);
+  display: none;
+  flex-direction: column;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  min-width: 100%;
+  padding: 10px 0;
+  position: absolute;
+  top: calc(100% - 4px);
+}
+
+.menu-item:hover .menu-sub-list {
+  display: flex;
+}
+
+.menu-sub-list li {
+  align-items: center;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  height: 44px;
+  padding-right: 24px;
+}
+
+.menu-sub-list li::before {
+  background: #54C5ED;
+  content: "";
+  height: 1px;
+  margin-right: 11px;
+  width: 12px;
+}
+
+.menu-sub-list li:hover {
+  color: #54C5ED;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  height: 16px;
+  left: 19px;
+  position: absolute;
+  width: 24px;
+  display: none;
+  z-index: 11;
+}
+
+@media (max-width: 1199.9px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.menu-toggle div {
+  background-color: #54C5ED;
+  height: 2px;
+  margin-bottom: 4px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.menu-toggle--open div {
+  background-color: #00d0e8;
+}
+
+.menu-toggle--open div:first-child {
+  transform: rotate(45deg) translate3d(6px, 3px, 0);
+}
+
+.menu-toggle--open div:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.menu-toggle--open div:nth-child(3) {
+  transform: rotate(-45deg) translate3d(6px, -3px, 0);
+}
+
+.menu-close {
+  display: none;
+}
+
+/* Mobile Menu - Below 1200px */
+@media (max-width: 1199.9px) {
+  .header-top {
+    align-items: center;
+    height: 96px;
+    padding-top: 0;
+    position: fixed;
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(0,0,0,0.75), transparent);
+  }
+  
+  .header-top__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+  }
+  
+  .header-top__logo img {
+    max-height: 60px;
+    width: auto;
+    height: auto;
+  }
+  
+  .menu {
+    position: absolute;
+    right: 19px;
+  }
+  
+  .menu-list {
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    max-height: calc(100% - 140px);
+    padding: 0;
+    width: 100%;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    height: auto;
+  }
+  
+  .menu-list::before {
+    display: none;
+  }
+  
+  .menu-item {
+    color: #fff;
+    cursor: pointer;
+    font-family: BlenderProBook, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    position: relative;
+    text-transform: uppercase;
+    user-select: none;
+    align-items: flex-start;
+    display: none;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+  
+  .menu-item a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .menu-item.menu-item-buy {
+    align-items: center;
+    background: #54C5ED;
+    bottom: 46px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+    color: #000;
+    font-family: BlenderProBold, sans-serif;
+    font-weight: 700;
+    height: 48px;
+    justify-content: center;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    width: 232px;
+    display: flex;
+  }
+  
+  .menu-sub {
+    align-items: center;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .menu-sub:after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #fff;
+    content: "";
+    display: block;
+    height: 6px;
+    margin-left: 4px;
+    position: relative;
+    width: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-sub--open:after {
+    transform: rotate(180deg);
+  }
+  
+  .menu-sub-list {
+    align-items: flex-start;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 20px 16px 8px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    clip-path: none;
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+  
+  .menu-sub-list li::before {
+    display: none;
+  }
+  
+  .menu-sub-list li {
+    height: auto;
+    padding: 0;
+  }
+  
+  .menu-sub-list li:hover {
+    color: #54C5ED;
+  }
+  
+  .menu--open {
+    background-color: #000;
+    display: flex;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 104px 24px 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .menu--open .menu-list {
+    overflow-y: auto;
+  }
+  
+  .menu--open .menu-item {
+    display: flex;
+    animation: show-menu-item 0.3s ease-in-out forwards;
+    opacity: 0;
+  }
+  
+  .menu--open .menu-item:first-child {
+    animation-delay: 0s;
+  }
+  
+  .menu--open .menu-item:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .menu--open .menu-item:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  .menu--open .menu-item:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  
+  .menu--open .menu-item:hover {
+    background: transparent;
+    color: #54C5ED;
+  }
+  
+  .menu-item:hover {
+    background: transparent !important;
+    color: #54C5ED !important;
+  }
+  
+  .menu-item.menu-item-buy:hover {
+    background: #54C5ED !important;
+    color: #000 !important;
+  }
+  
+  .menu-sub--open + .menu-sub-list {
+    display: flex;
+    animation: show-sub-list 0.3s ease-in-out forwards;
+    height: 0;
+    opacity: 0;
+    padding: 0 16px;
+  }
+}
+
+@keyframes show-menu-item {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes show-sub-list {
+  0% {
+    height: 0;
+    opacity: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+    padding-bottom: 8px;
+    padding-top: 20px;
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* News Section - EXACT Cyberpunk Clone */
+.news {
+  margin-top: -132px;
+  padding: 0 40px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 767.9px) {
+  .news {
+    padding: 0 24px 48px;
+  }
+}
+
+.news::before {
+  background: #cbcbcb;
+  content: "";
+  display: block;
+  height: 2px;
+  margin-bottom: 12px;
+  opacity: 0.3;
+  width: 100%;
+}
+
+.news__list {
+  display: grid;
+  grid-template-columns: 48.9130434783% 6.4130434783% 19.1304347826% 2.1739130435% 19.1304347826% 4.2391304348%;
+  grid-template-rows: repeat(2, minmax(16.5217391304%, auto));
+  grid-gap: 16px 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+  .news__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .news__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .news__tile:after {
+    border-bottom: 2px solid #fff;
+    content: "";
+    display: block;
+    height: 2.1875vw;
+    width: 2.5vw;
+  }
+}
+
+@media (max-width: 1199px) {
+  .news__tile {
+    width: calc(50% - 16px);
+  }
+}
+
+@media (max-width: 767.9px) {
+  .news__tile {
+    width: 100%;
+  }
+}
+
+.news__tile .news__image-title {
+  display: none;
+}
+
+.news__tile:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.news__tile:first-child .news__image:after {
+  border: 6px solid #00d0e8;
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 1199px) {
+  .news__tile:first-child {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .news__tile:first-child:after {
+    height: 1.3541666667vw;
+  }
+  
+  .news__tile:first-child .news__decor-2 {
+    display: none;
+  }
+  
+  .news__tile:first-child .news__image-title,
+  .news__tile:first-child .news__image::before {
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.61) 39.07%, #000);
+  }
+  
+  .news__tile:first-child .news__image-title {
+    align-items: flex-end;
+    bottom: 0;
+    color: #00d0e8;
+    display: flex;
+    height: 239px;
+    padding: 0 32px 32px;
+    position: absolute;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  
+  .news__tile:first-child .news__title {
+    display: none;
+  }
+}
+
+.news__tile:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.news__tile:nth-child(3) {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.news__tile:nth-child(4) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.news__tile:nth-child(5) {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+.news__tile a {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.news__decor {
+  display: flex;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  padding-bottom: 4px;
+}
+
+.news__decor-1d {
+  color: #00d0e8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.news__decor-2,
+.news__decor-2d {
+  color: #cbcbcb;
+  flex: 1;
+  text-align: right;
+}
+
+.news__image {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.news__image img {
+  aspect-ratio: 16/9;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.news__title {
+  padding-top: 12px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .news__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.news__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 72px;
+  overflow: hidden;
+  padding: 20px 32px 0;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 767.9px) {
+  .news__excerpt {
+    display: none;
+  }
+}
+
+.news__more {
+  padding: 64px 0 56px;
+  text-align: center;
+}
+
+.news__decor-bottom {
+  bottom: 15px;
+  color: #54C5ED;
+  direction: ltr;
+  font-size: 16px;
+  font-weight: 400;
+  left: 8px;
+  line-height: 110%;
+  position: absolute;
+}
+
+@media (max-width: 767.9px) {
+  .news__decor-bottom {
+    display: none;
+  }
+}
+
+/* Intro Section - EXACT Cyberpunk Clone */
+.intro {
+  align-items: center;
+  background: #54C5ED;
+  display: flex;
+  flex-direction: column;
+  padding: 88px 40px 0;
+}
+
+@media (max-width: 767.9px) {
+  .intro {
+    padding: 42px 24px 0;
+  }
+}
+
+.intro:after {
+  background: rgba(0,0,0,0.1);
+  content: "";
+  display: block;
+  height: 2px;
+  margin-bottom: 0;
+  margin-top: 32px;
+  width: 100%;
+}
+
+.intro__bg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro__header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 744px;
+  padding: 0 0 46px;
+  text-align: center;
+}
+
+@media (max-width: 767.9px) {
+  .intro__header {
+    padding: 0 0 32px;
+  }
+}
+
+.intro__decor-bottom {
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+  font-weight: 700;
+  line-height: 110%;
+  padding: 0;
+}
+
+/* Content Sections for Detail Pages */
+.content-section {
+  background: #000;
+  padding: 88px 40px;
+}
+
+@media (max-width: 767.9px) {
+  .content-section {
+    padding: 48px 24px;
+  }
+}
+
+.content-section__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-section__inner h2 {
+  margin-bottom: 24px;
+}
+
+.content-section__inner p {
+  margin-bottom: 16px;
+}
+
+.content-section__inner .cp-btn {
+  margin-top: 24px;
+}
+
+.intro__separator-top {
+  background-image: linear-gradient(90deg, #000 28px, #54C5ED 0, #54C5ED calc(50% - 14px), #000 calc(50% - 14px), #000 calc(50% + 14px), #54C5ED calc(50% + 14px), #54C5ED calc(100% - 28px), #000 calc(100% - 28px), #000),
+                    linear-gradient(90deg, #000 2px, #54C5ED 0, #54C5ED calc(50% - 1px), #000 calc(50% - 1px), #000 calc(50% + 1px), #54C5ED calc(50% + 1px), #54C5ED calc(100% - 2px), #000 calc(100% - 2px), #000);
+  background-repeat: no-repeat;
+  background-size: 100% 2px, 100% 28px;
+  height: 28px;
+  margin-bottom: 40px;
+  width: 47.2916666667vw;
+}
+
+@media (max-width: 1199px) {
+  .intro__separator-top {
+    width: 100%;
+  }
+}
+
+.intro__separator-bottom {
+  background-image: linear-gradient(90deg, #000 2px, #54C5ED 0, #54C5ED calc(50% - 1px), #000 calc(50% - 1px), #000 calc(50% + 1px), #54C5ED calc(50% + 1px), #54C5ED calc(100% - 2px), #000 calc(100% - 2px), #000),
+                    linear-gradient(90deg, #000 28px, #54C5ED 0, #54C5ED calc(50% - 14px), #000 calc(50% - 14px), #000 calc(50% + 14px), #54C5ED calc(50% + 14px), #54C5ED calc(100% - 28px), #000 calc(100% - 28px), #000);
+  background-repeat: no-repeat;
+  background-size: 100% 26px, 100% 28px;
+  height: 28px;
+  margin-top: 40px;
+  width: 47.2916666667vw;
+}
+
+@media (max-width: 1199px) {
+  .intro__separator-bottom {
+    width: 100%;
+  }
+}
+
+.intro__products {
+  align-items: flex-start;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.intro__products-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  flex: 0 1 50%;
+}
+
+@media (max-width: 1199px) {
+  .intro__products {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .intro__products-row {
+    flex: 0 1 100%;
+    flex-direction: column;
+  }
+}
+
+.product {
+  box-sizing: border-box;
+  flex: 0 1 50%;
+  width: 50%;
+}
+
+.product__content {
+  aspect-ratio: 460/672;
+  background: #222;
+  border-color: #000;
+  border-style: solid;
+  border-width: 8px 4px;
+  display: block;
+  position: relative;
+}
+
+.product--1 .product__content {
+  border-left-width: 8px;
+}
+
+.product--4 .product__content {
+  border-right-width: 8px;
+}
+
+@media (max-width: 1199px) {
+  .product--2 .product__content {
+    border-right-width: 8px;
+  }
+  
+  .product--3 .product__content {
+    border-left-width: 8px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .product {
+    flex: 0 1 100%;
+    width: 100%;
+  }
+  
+  .product__content {
+    border-width: 4px;
+  }
+  
+  .product--1 .product__content,
+  .product--2 .product__content,
+  .product--3 .product__content,
+  .product__content {
+    border-left-width: 4px;
+    border-right-width: 4px;
+  }
+}
+
+.product__image {
+  width: 100%;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.product__logo {
+  font-family: Refinery-25, sans-serif;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 90%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 3px;
+  text-shadow: 0 2px 8px rgba(0,0,0,1), 0 4px 16px rgba(0,0,0,1), 0 8px 32px rgba(0,0,0,0.9);
+}
+
+.product__footer {
+  align-items: center;
+  background: linear-gradient(180deg, transparent, #000);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-end;
+  padding: 2.0833333333vw 2.5vw;
+  position: absolute;
+  width: 100%;
+}
+
+@media (max-width: 767.9px) {
+  .product__footer {
+    padding: 10.2564102564vw 6.1538461538vw;
+  }
+}
+
+/* Newsletter - EXACT Cyberpunk Clone */
+.l-newsletter {
+  align-items: center;
+  background: #54C5ED;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 40px 32px;
+}
+
+@media (max-width: 767.9px) {
+  .l-newsletter {
+    padding: 48px 24px;
+  }
+}
+
+.l-newsletter__title {
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  max-width: 900px;
+  padding-bottom: 7px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.l-newsletter__text {
+  max-width: 900px;
+  padding-bottom: 32px;
+  text-align: center;
+}
+
+.l-newsletter input[type=email] {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid #000;
+  color: #000;
+  flex: 1 1 auto;
+  font-size: 24px;
+  line-height: 1.2;
+  outline: 0;
+  padding: 5px 2px;
+}
+
+.l-newsletter input[type=email].empty {
+  color: transparent;
+}
+
+.l-newsletter button[type=submit] {
+  align-items: center;
+  background: none;
+  border-image: url(../images/cp-btn-black.svg) 0 20 fill;
+  border-style: solid;
+  border-width: 0 20px;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  min-width: 212px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.l-newsletter button[type=submit]:disabled {
+  cursor: default;
+  opacity: 0.25;
+}
+
+.l-newsletter label {
+  color: #000;
+  font-size: 23px;
+  left: 8px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  transition: all 0.3s ease;
+}
+
+.l-newsletter__invalid-info {
+  color: #ff6000;
+  display: none;
+  font-size: 15px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -15px;
+}
+
+.l-newsletter__form {
+  display: flex;
+  gap: 20px;
+  max-width: 744px;
+}
+
+@media (max-width: 767.9px) {
+  .l-newsletter__form {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.l-newsletter__input {
+  align-items: center;
+  display: flex;
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.l-newsletter__caret {
+  animation: l-newsletter__caret-anim 1s ease-in-out infinite;
+  background: #000;
+  content: " ";
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 8px;
+  width: 4px;
+}
+
+.l-newsletter__checkbox {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 100%;
+  margin-top: 10px;
+}
+
+.l-newsletter__checkbox .c-checkbox {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  margin-top: 1px;
+}
+
+.l-newsletter__checkbox p {
+  color: #000;
+  font-size: 14px;
+  line-height: 15px;
+  margin: 0;
+}
+
+.l-newsletter__checkbox a {
+  color: inherit;
+}
+
+.l-newsletter--focus label {
+  color: #000;
+  font-size: 16px;
+  left: 0;
+  top: -17px;
+}
+
+.l-newsletter--focus .l-newsletter__caret {
+  background: #000;
+}
+
+.l-newsletter--invalid label {
+  display: none;
+}
+
+.l-newsletter--invalid .l-newsletter__invalid-info {
+  display: block;
+}
+
+@keyframes l-newsletter__caret-anim {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  51% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.c-checkbox {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  height: 14px;
+  position: relative;
+  transition: border 0.3s ease;
+  width: 14px;
+}
+
+.c-checkbox input {
+  border: 0;
+  bottom: 0;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.c-checkbox input:checked + i {
+  display: block;
+}
+
+.c-checkbox i {
+  background: #000;
+  bottom: -1px;
+  display: none;
+  left: -1px;
+  pointer-events: none;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  transition: background 0.3s ease;
+}
+
+/* Footer - EXACT Cyberpunk Clone */
+.footer {
+  background: #000;
+  padding: 48px 0 28px;
+  position: relative;
+}
+
+.footer .content {
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-gap: 25px;
+  margin: 0 auto;
+  max-width: 1408px;
+  padding: 0 24px;
+}
+
+.footer .content + .content {
+  margin-top: 25px;
+}
+
+.footer .socials {
+  align-items: center;
+  color: #cbcbcb;
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.footer .socials a {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  display: block;
+  height: 40px;
+  margin-left: 12px;
+  width: 40px;
+  background-color: #54C5ED;
+  border-radius: 50%;
+}
+
+.footer .socials a:nth-child(2) {
+  margin-left: 20px;
+}
+
+.social-linkedin {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+}
+
+.social-twitter {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z'/%3E%3C/svg%3E");
+}
+
+.social-youtube {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'/%3E%3C/svg%3E");
+}
+
+.footer .links {
+  display: flex;
+  gap: 34px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.footer .links a {
+  color: #00d0e8;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.footer .copyright {
+  align-items: center;
+  display: flex;
+  gap: 40px;
+}
+
+.footer .copyright a img {
+  height: 73px;
+  width: auto;
+  filter: brightness(0) saturate(100%) invert(84%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(87%);
+}
+
+.footer .copyright p {
+  color: #cbcbcb;
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 526px;
+}
+
+.footer hr {
+  background: rgba(255,255,255,0.11);
+  border: none;
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  height: 2px;
+  margin: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 1440px) {
+  .footer .content {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  
+  .footer .links,
+  .footer hr {
+    grid-column-end: 2;
+  }
+  
+  .footer .links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .footer .socials {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer .socials > span {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .footer .copyright {
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .footer .copyright p {
+    text-align: center;
+  }
+}
+

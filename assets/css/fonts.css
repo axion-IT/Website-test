@@ -1,0 +1,35 @@
+/* Cyberpunk Fonts - Copied from CP site */
+
+@font-face {
+  font-family: BlenderProBook;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/BlenderPro-Book.woff2) format("woff2"),
+       url(../fonts/BlenderPro-Book.woff) format("woff");
+}
+
+@font-face {
+  font-family: BlenderProBold;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/BlenderPro-Bold.woff2) format("woff2"),
+       url(../fonts/BlenderPro-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Refinery-25;
+  font-style: normal;
+  font-weight: 600;
+  src: url(../fonts/Refinery-25SemiBold.woff2) format("woff2"),
+       url(../fonts/Refinery-25SemiBold.woff) format("woff");
+}
+
+
+
+
+
+
+
+
+
